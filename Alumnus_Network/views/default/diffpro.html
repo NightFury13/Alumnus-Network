@@ -1,0 +1,28 @@
+{{extend 'layout.html'}}
+	 <div align="center" style="font-size:20px;">                                             
+		<div style="background-color:#40B3BF;color:#ffffff;font-size:30px;"><b><i><strong>
+			Name :{{=pro['first_name']}}{{=pro['last_name']}}</br>
+			</br>
+			Batch :{{=pro['Batch']}}
+			</br>
+		</b></i></strong>
+		</div>
+		</br>
+	</div>
+	<div >
+	<img src="{{=URL('download',args=pro['ProfilePic'])}}" width="300px" height="300px"/>
+	</div>
+	<div style="background-color:lightgrey; width:30%">
+	</br>
+	<b>
+	Currently at : {{=pro['Curr_set_in']}}<br>
+	Qualifications : {{=pro['Qualifications']}}<br>
+	Working as  : {{=pro['Working_as']}}<br>
+	Works at : {{=pro['Working_at']}}<br>
+	Achivements : {{=pro['Achivements']}}<br>
+	About you : {{=pro['About_you']}}<br>
+	</b>
+	<div>
+	
+	</div>
+	</div>

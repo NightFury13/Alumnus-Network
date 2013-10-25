@@ -1,0 +1,75 @@
+{{extend 'layout.html'}}
+<div id='box' style="float:left; width:80%">
+<div style="background-color:lightgrey" width="50%" align="center">
+<h2>Requests</h2>
+<table border="1">
+<tr>
+<td>By:</td>
+<td>At:</td>
+<td>Request:</td>
+</tr>
+{{for i in req:}}
+</br><b>
+<td>{{=i['reqby']}}</td>
+<td>{{=i['reqat']}}</td>
+<td>{{=i['cont']}}</td>
+</tr>
+{{pass}}</table></b>
+</br>
+</br>
+<hr>
+</div>
+<div style="background-color:lightpink" width="50%" align="center">
+<h2>POLLS</h2>
+</br>
+</br>
+<b>
+<table border="1">
+<tr>
+<td>By:</td>
+<td>Rating:</td>
+<td>Poll:</td>
+<td>Vote</td>
+</tr>
+{{for i in polls:}}
+<tr>
+
+<td> {{=i['pollby']}}</td>
+<td> {{=i['rating']}}</td>
+<td> {{=i['poll']}}</td>
+
+<td><a href="{{=URL('Alumnus_Network','default','pollans')+'/'+str(i['id'])}}">Vote This</a></td>
+</tr>
+{{pass}}</b>
+</table>
+</br>
+</br>
+<hr>
+</div>
+<div style="background-color:lightgreen" width="50%" align="center">
+<h2>FEEDS</h2>
+</br>
+</br><b>
+<table border="1">
+<tr>
+<td> Feed:</td>
+<td> At: </td>
+</tr>
+{{for i in feeds:}}
+<tr>
+<td>{{=i['cont']}}</td>
+<td>{{=i['fedat']}}</td>
+{{pass}}</b>
+</tr>
+</table>
+</br>
+</br>
+<hr>
+</div>
+</div>
+<div id="batch" style="background-color:lightgrey;float:right;width:18%">
+<h4>Batch Of</h4>
+{{for i in range(1998,2014):}}
+<a href="{{=URL('Alumnus_Network','default','batch')+'/'+str(i)}}">{{=i}}</a></br>
+{{pass}}
+</div>

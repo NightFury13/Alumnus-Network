@@ -1,0 +1,107 @@
+{{extend 'layout.html'}}
+<div align="center" style="font-size:20px;">                                             
+<div style="background-color:#40B3BF;color:#ffffff;font-size:30px;"><b><i><strong>
+Name :{{=pro['first_name']}}{{=pro['last_name']}}</br>
+</br>
+Batch :{{=pro['Batch']}}
+</br>
+</b></i></strong>
+</div>
+</br>
+</div>
+<div >
+<img src="{{=URL('download',args=pro['ProfilePic'])}}" style="float:left" width="300px" height="300px"/>
+</div>
+<div style="float:left;background-color:lightgrey; width:40%">
+</br>
+<p border="10%"><b>
+Currently at : {{=pro['Curr_set_in']}}<br>
+Qualifications : {{=pro['Qualifications']}}<br>
+Working as  : {{=pro['Working_as']}}<br>
+Works at : {{=pro['Working_at']}}<br>
+Achivements : {{=pro['Achivements']}}<br>
+About you : {{=pro['About_you']}}<br>
+</b>
+</p>
+</div>
+
+<div style="float:right">
+<style>
+.offscreen { 
+position: absolute; 
+top: -30em; 
+left: -300em; 
+} 
+
+div#vmenu { 
+margin: 0; 
+padding: .25em 0em .25em 0em; 
+border: solid 1px #30c9e0; 
+background: #fcac4c; 
+width: 13.5em; 
+} 
+
+div#vmenu ul { 
+margin: 0; 
+padding: 0; 
+		 list-style: none; 
+} 
+
+div#vmenu ul li { 
+margin: 0; 
+padding: 0; 
+		 list-style: none; 
+} 
+
+div#vmenu ul a:link { 
+margin: 0; 
+padding: .2em 0em .2em .4em; 
+		 text-decoration: none; 
+		 font-weight: bold; 
+		 font-size: medium; 
+		 background-color: #fcac3c; 
+color: #0059a0; 
+display: block; 
+} 
+
+div#vmenu ul a:active { 
+margin: 0; 
+padding: .25em .5em .25em .5em; 
+		 text-decoration: none; 
+		 font-weight: bold; 
+		 font-size: medium; 
+background: #4d8cba; 
+color: #ffffff; 
+display: block; 
+} 
+
+div#vmenu ul a:visited { 
+margin: 0; 
+padding:  .25em .5em .25em .5em; 
+		  text-decoration: none; 
+		  font-weight: bold; 
+		  font-size: medium; 
+background: #4d8cba; 
+color: #ffffff; 
+display: block; 
+} 
+
+div#vmenu ul li a:hover { 
+margin: 0; 
+padding: .2em 0em .2em .4em; 
+		 text-decoration: none; 
+		 font-weight: bold; 
+		 font-size: medium; 
+		 background-color: #30c9e0; 
+color: #ffffff; 
+display: block; 
+}
+</style>
+<div id="vmenu"> 
+<ul> 
+<li><a href="http://www.iiit.ac.in">IIIT-H</a></li> 
+<li><a href="https://www.facebook.com/pages/IIIT-Hyderabad/159756897414001?fref=ts">IIIT-H FB PAGE</a></li> 
+<li><a href="http://www.felicity.iiit.ac.in/">Felicity Site</a></li> 
+</ul>   
+</div> 
+</div>

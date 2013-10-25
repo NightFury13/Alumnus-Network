@@ -1,0 +1,18 @@
+{{extend 'layout.html'}}
+
+<h2>Batch of {{=i}}</h2>
+</br>
+
+<table border="1">
+</th>
+<td>Name</td>
+<td>Qualifications</td>
+<td>View More</td>
+</th>
+{{for i in names:}}
+<tr>
+<td>{{=i['first_name']}} {{=i['last_name']}}</td>
+<td>{{=i['Qualifications']}}</td>
+<td><a href="{{=URL('Alumnus_Network','default','diffpro')+'/'+str(i['id'])}}">Click Here</a></td>
+</tr>
+{{pass}}

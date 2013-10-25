@@ -1,0 +1,103 @@
+timestamp: 2013-09-29T02:53:00.038702
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2013-09-29T02:53:00.196409
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2013-09-29T02:53:00.310516
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2013-09-29T02:53:00.458425
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2013-09-29T02:53:00.602737
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2013-09-29T02:53:00.759883
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2013-09-29T03:24:23.044377
+ALTER TABLE auth_user ADD working_as CHAR(512);
+timestamp: 2013-09-29T03:24:23.221346
+ALTER TABLE auth_user ADD qualifications CHAR(512);
+timestamp: 2013-09-29T03:24:23.367564
+ALTER TABLE auth_user ADD batch INTEGER;
+timestamp: 2013-09-29T03:24:23.503845
+ALTER TABLE auth_user ADD curr_set_in CHAR(512);
+timestamp: 2013-09-29T03:24:23.659156
+ALTER TABLE auth_user ADD profilepic CHAR(512);
+timestamp: 2013-09-29T03:36:49.840392
+CREATE TABLE req(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    reqby INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    cont CHAR(512),
+    reqat TIMESTAMP
+);
+success!
+timestamp: 2013-09-29T03:42:54.912052
+CREATE TABLE feeds(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    feedby INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    cont TEXT,
+    fedat TIMESTAMP
+);
+success!
+timestamp: 2013-09-29T03:54:42.054589
+CREATE TABLE polls(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    poll TEXT,
+    rating INTEGER,
+    pollby INTEGER REFERENCES auth_user (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2013-09-29T03:56:12.000542
+CREATE TABLE pollresp(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pollid INTEGER REFERENCES polls (id) ON DELETE CASCADE,
+    ans CHAR(512),
+    ansby INTEGER REFERENCES auth_user (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2013-09-29T05:32:19.798397
+ALTER TABLE auth_user ADD working_at CHAR(512);
+timestamp: 2013-09-29T05:32:19.971777
+ALTER TABLE auth_user ADD about_you TEXT;
+timestamp: 2013-09-29T05:32:20.136962
+ALTER TABLE auth_user ADD achivements CHAR(512);
